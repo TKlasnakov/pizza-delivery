@@ -37,6 +37,7 @@ const USERS = {
         }
     ],
     USER_DIRECTORY: 'users',
+    TOKEN_DIRECTORY: 'tokens',
     FILE_NAME: 'email',
     ERRORS: {
         NO_SUCH_USER: 'Email is required'

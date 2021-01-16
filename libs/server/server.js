@@ -35,7 +35,7 @@ class Server {
             payload += decoder.end();
             reqData = {
                 ...reqData,
-                payload: validations.payloadValidation(payload)
+                payload: validations.payloadValidation(payload, reqData.method)
             }
 
             this._callHandler(reqData, res)

@@ -4,7 +4,7 @@ const router = {
     users: handlers.users,
     login: handlers.login,
     logout: handlers.logout,
-    menuItems: handlers.menuItems,
+    "menu-items": handlers.menuItems,
     cart: handlers.cart,
     order: handlers. order,
     notFound: handlers.notFound

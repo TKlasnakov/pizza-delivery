@@ -36,7 +36,8 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
         if(payload.password) {
             payload.password = Authentication.hashPassword(payload.password);
         }
-        Authentication.userAuthentication(email, token, (isAuthenticated) => {
+        const token = headers.token;
+        Authentication.userAuthentication(payload.email, token, (isAuthenticated) => {
             if (!isAuthenticated) {
                 return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
             }
@@ -72,7 +73,12 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
                 if(err) {
                     return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
                 }
-                return callback(STATUS_CODES.SUCCESS);
+                FileSystem.deleteFile(USERS.TOKEN_DIRECTORY, token, (err) => {
+                    if(err) {
+                        return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
+                    }
+                    return callback(STATUS_CODES.SUCCESS);
+                })
             })
         })
     }

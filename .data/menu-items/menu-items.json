@@ -1,0 +1,22 @@
+{"menuItems": [
+  {
+    "name": "Margarita",
+    "price": 11
+  },
+  {
+    "name": "Riveroni",
+    "price": 15.90
+  },
+  {
+    "name": "Pepperoni",
+    "price": 14.90
+  },
+  {
+    "name": "Hawai",
+    "price": 11.90
+  },
+  {
+    "name": "Karbonara",
+    "price": 12.90
+  }
+]}

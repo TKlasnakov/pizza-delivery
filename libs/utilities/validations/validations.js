@@ -1,4 +1,5 @@
 const ERRORS = require('../common/common').ERRORS;
+const METHODS = require('../common/common').METHODS;
 
 class Validations {
     static validateCreateFields = (validationFields, payloadFields) => {
@@ -62,8 +63,11 @@ class Validations {
         return null;
     }
 
-    static payloadValidation = (payload) => {
+    static payloadValidation = (payload, method) => {
         try {
+            if(method === METHODS.GET || method === METHODS.DELETE) {
+                return {}
+            }
             return JSON.parse(payload)
         } catch (err) {
             return { error: err.toString() };

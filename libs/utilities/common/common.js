@@ -22,6 +22,12 @@ const COMMON = {
         INTERNAL_SERVER_ERROR: 500,
 
     },
+    METHODS: {
+      POST: 'post',
+      GET: 'get',
+      DELETE: 'delete',
+      PUT: 'put'
+    },
     ERRORS: {
         INVALID_REQUIRED_FIELDS: (fields) => ({ error: `Required fields are missing: ${fields}` }),
         INVALID_MIN_LENGTH: (fields) => ({ error: `Fields min length error: ${fields}` }),
@@ -34,7 +40,6 @@ const COMMON = {
     },
     INIT: (method, methods, callback) => {
         if(!Object.keys(methods).includes(method)) {
-            console.log(method);
             return callback(COMMON.METHOD_NOT_ALLOWED, COMMON.ERRORS.METHOD_NOT_ALLOWED() )
         }
 
