@@ -69,7 +69,6 @@ class Validations {
             return { error: err.toString() };
         }
     }
-
 }
 
 module.exports = Validations;

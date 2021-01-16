@@ -1,5 +1,6 @@
 const STATUS_CODES = require('../../libs/utilities/common/common').STATUS_CODES;
 const USERS = require('./constants');
+const COMMON = require('../../libs/utilities/common/common');
 const Validations = require('../../libs/utilities/validations/validations');
 const Authentication = require('../../libs/utilities/authentication/authentication');
 const FileSystem = require('../../libs/utilities/file-system/file-system');
@@ -80,16 +81,7 @@ const Users = ({ payload, method, urlQuery }, callback) => {
         })
     }
 
-    function init() {
-        if(!Object.keys(methods).includes(method)) {
-            return callback(STATUS_CODES.METHOD_NOT_ALLOWED, { error: USERS.ERRORS.METHOD_NOT_ALLOWED })
-        }
-
-        return methods[method]();
-    }
-
-    return init();
-
+   return COMMON.INIT(method, methods, callback);
 }
 
 module.exports = Users;

@@ -3,15 +3,17 @@ const menuItems = require('./menu-items/menu-items');
 const cart = require('./cart/cart');
 const order = require('./order/order');
 const notFound = require('./not-found/not-found');
-const usersAuthentication = require('./users-authentication/users-authentication');
+const logout = require('./logout/logout');
+const login = require('./login/login');
 
 class Handlers {
-    usersAuthentication
-    users
-    menuItems
-    cart
-    order
-    notFound
+    login = login;
+    logout = logout;
+    users = users;
+    menuItems = menuItems;
+    cart = cart;
+    order = order
+    notFound = notFound
 }
 
 module.exports = new Handlers();

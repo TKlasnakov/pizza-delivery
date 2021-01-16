@@ -27,7 +27,18 @@ const COMMON = {
         INVALID_MIN_LENGTH: (fields) => ({ error: `Fields min length error: ${fields}` }),
         INVALID_PATTERN: (fields) => ({ error: `Invalid field pattern: ${fields}`}),
         NO_EDITABLE_FIELD: () => ({error: 'No editable fields provided'}),
-        INVALID_FIELDS_PROVIDED: (fields) => ({error: `Invalid fields provided: ${fields}`})
+        INVALID_FIELDS_PROVIDED: (fields) => ({error: `Invalid fields provided: ${fields}`}),
+        METHOD_NOT_ALLOWED: () => ({error: `Method not allowed`}),
+        FAILED_AUTHENTICATION: () => ({error: 'Wrong email or password'}),
+        EXPIRED_TOKEN: () => ({error: 'Token is expired'})
+    },
+    INIT: (method, methods, callback) => {
+        if(!Object.keys(methods).includes(method)) {
+            console.log(method);
+            return callback(COMMON.METHOD_NOT_ALLOWED, COMMON.ERRORS.METHOD_NOT_ALLOWED() )
+        }
+
+        return methods[method]();
     }
 }
 

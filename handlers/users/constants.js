@@ -39,8 +39,7 @@ const USERS = {
     USER_DIRECTORY: 'users',
     FILE_NAME: 'email',
     ERRORS: {
-        NO_SUCH_USER: 'Email is required',
-        METHOD_NOT_ALLOWED: 'Method not allowed'
+        NO_SUCH_USER: 'Email is required'
     }
 }
 
