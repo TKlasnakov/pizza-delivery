@@ -54,7 +54,17 @@ const Users = ({ payload, method, urlQuery }, callback) => {
     }
 
     function deleteUser() {
-        return callback(STATUS_CODES.SUCCESS, 'DELETE');
+        if(!urlQuery.get(USERS.FILE_NAME)) {
+            return callback(STATUS_CODES.BAD_REQUEST, { error: USERS.ERRORS.NO_SUCH_USER })
+        }
+        const email = urlQuery.get(USERS.FILE_NAME);
+
+        FileSystem.deleteFile(USERS.USER_DIRECTORY, email, (err) => {
+            if(err) {
+                return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
+            }
+            return callback(STATUS_CODES.SUCCESS);
+        })
     }
 
     function getUserData() {
