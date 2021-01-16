@@ -4,7 +4,7 @@ const Validations = require('../../libs/utilities/validations/validations');
 const FileSystem = require('../../libs/utilities/file-system/file-system');
 const Authentication = require('../../libs/utilities/authentication/authentication');
 
-const login = ({ payload, method, urlQuery }, callback) => {
+const login = ({ payload, method, urlQuery, headers }, callback) => {
     const methods = {
         post: createToken,
         put: extendToken
@@ -15,6 +15,7 @@ const login = ({ payload, method, urlQuery }, callback) => {
         if(error) {
             return callback(COMMON.STATUS_CODES.BAD_REQUEST, error);
         }
+
         FileSystem.readFile(TOKEN.USER_DIRECTORY, payload.email, (err, userData) => {
             if(err) {
                 return callback(COMMON.STATUS_CODES.INTERNAL_SERVER_ERROR, err);

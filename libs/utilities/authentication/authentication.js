@@ -1,9 +1,23 @@
 const config = require('../../../config');
 const crypto = require('crypto');
-const StringUtilities = require('../strings/strings')
+const StringUtilities = require('../strings/strings');
+const FileSystem = require('../file-system/file-system');
+const TOKEN = require('../../../handlers/login/constants')
 
 class Authentication {
-    static isAuthenticated() {}
+    static userAuthentication(email, token, callback) {
+       FileSystem.readFile(TOKEN.TOKEN_DIRECTORY, token, (err, tokenData) => {
+           if(err) {
+               return callback(false);
+           }
+
+           if(tokenData.email !== email || tokenData.expires < Date.now()) {
+               return callback(false);
+           }
+
+           return callback(true);
+       })
+    }
 
     static hashPassword(password) {
         return crypto

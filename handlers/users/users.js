@@ -5,7 +5,7 @@ const Validations = require('../../libs/utilities/validations/validations');
 const Authentication = require('../../libs/utilities/authentication/authentication');
 const FileSystem = require('../../libs/utilities/file-system/file-system');
 
-const Users = ({ payload, method, urlQuery }, callback) => {
+const Users = ({ payload, method, urlQuery, headers }, callback) => {
     const methods = {
         get: getUserData,
         post: createUser,
@@ -36,20 +36,24 @@ const Users = ({ payload, method, urlQuery }, callback) => {
         if(payload.password) {
             payload.password = Authentication.hashPassword(payload.password);
         }
-
-        FileSystem.readFile(USERS.USER_DIRECTORY, payload.email, (err, data) => {
-            if(err) {
-                return callback(STATUS_CODES.BAD_REQUEST, {error: err});
+        Authentication.userAuthentication(email, token, (isAuthenticated) => {
+            if (!isAuthenticated) {
+                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
             }
-            const userData = {
-                ...data,
-                ...payload
-            }
-            FileSystem.editFile(USERS.USER_DIRECTORY, payload.email, userData, (err) => {
+            FileSystem.readFile(USERS.USER_DIRECTORY, payload.email, (err, data) => {
                 if(err) {
-                    return callback(STATUS_CODES.BAD_REQUEST, { error : err })
+                    return callback(STATUS_CODES.BAD_REQUEST, {error: err});
                 }
-                return callback(STATUS_CODES.SUCCESS);
+                const userData = {
+                    ...data,
+                    ...payload
+                }
+                FileSystem.editFile(USERS.USER_DIRECTORY, payload.email, userData, (err) => {
+                    if(err) {
+                        return callback(STATUS_CODES.BAD_REQUEST, { error : err })
+                    }
+                    return callback(STATUS_CODES.SUCCESS);
+                })
             })
         })
     }
@@ -59,12 +63,17 @@ const Users = ({ payload, method, urlQuery }, callback) => {
             return callback(STATUS_CODES.BAD_REQUEST, { error: USERS.ERRORS.NO_SUCH_USER })
         }
         const email = urlQuery.get(USERS.FILE_NAME);
-
-        FileSystem.deleteFile(USERS.USER_DIRECTORY, email, (err) => {
-            if(err) {
-                return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
+        const token = headers.token;
+        Authentication.userAuthentication(email, token, (isAuthenticated) => {
+            if(!isAuthenticated) {
+                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
             }
-            return callback(STATUS_CODES.SUCCESS);
+            FileSystem.deleteFile(USERS.USER_DIRECTORY, email, (err) => {
+                if(err) {
+                    return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
+                }
+                return callback(STATUS_CODES.SUCCESS);
+            })
         })
     }
 
@@ -73,11 +82,17 @@ const Users = ({ payload, method, urlQuery }, callback) => {
             return callback(STATUS_CODES.BAD_REQUEST, { error: USERS.ERRORS.NO_SUCH_USER })
         }
         const email = urlQuery.get(USERS.FILE_NAME);
-        FileSystem.readFile(USERS.USER_DIRECTORY, email, (err, userData) => {
-            if(err) {
-                return callback(STATUS_CODES.BAD_REQUEST, { error : err });
+        const token = headers.token;
+        Authentication.userAuthentication(email, token, (isAuthenticated) => {
+            if(!isAuthenticated) {
+                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
             }
-            return callback(STATUS_CODES.SUCCESS, userData);
+            FileSystem.readFile(USERS.USER_DIRECTORY, email, (err, userData) => {
+                if(err) {
+                    return callback(STATUS_CODES.BAD_REQUEST, { error : err });
+                }
+                return callback(STATUS_CODES.SUCCESS, userData);
+            })
         })
     }
 

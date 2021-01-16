@@ -30,7 +30,7 @@ const COMMON = {
         INVALID_FIELDS_PROVIDED: (fields) => ({error: `Invalid fields provided: ${fields}`}),
         METHOD_NOT_ALLOWED: () => ({error: `Method not allowed`}),
         FAILED_AUTHENTICATION: () => ({error: 'Wrong email or password'}),
-        EXPIRED_TOKEN: () => ({error: 'Token is expired'})
+        EXPIRED_TOKEN: () => ({error: 'Token is expired or invalid'}),
     },
     INIT: (method, methods, callback) => {
         if(!Object.keys(methods).includes(method)) {
