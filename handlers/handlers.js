@@ -1,19 +1,17 @@
-const login = require('./login/login');
-const logout = require('./logout/logout');
 const users = require('./users/users');
 const menuItems = require('./menu-items/menu-items');
 const cart = require('./cart/cart');
 const order = require('./order/order');
-const notFound = require('./not-found/not-found')
+const notFound = require('./not-found/not-found');
+const usersAuthentication = require('./users-authentication/users-authentication');
 
 class Handlers {
-    login = login
-    logout = logout
-    users = users
-    menuItems = menuItems
-    cart = cart
-    order = order
-    notFound = notFound
+    usersAuthentication
+    users
+    menuItems
+    cart
+    order
+    notFound
 }
 
 module.exports = new Handlers();
