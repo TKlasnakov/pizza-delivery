@@ -1,6 +1,6 @@
-#Basic REST API on Node.js
+# Basic REST API on Node.js
 
-##Conditions: 
+## Conditions: 
 1. No external libraries should be use.
 2. New users can be created, their information can be edited, and they can be deleted. We should store their name, email address, and street address.
 3. Users can log in and log out by creating or destroying a token.
@@ -10,7 +10,7 @@
 7. When an order is placed, you should email the user a receipt. You should integrate with the sandbox of Mailgun.com for this.
 
 
-##Starting and using the program
+## Starting and using the program
 1. Go to the base directory of the project and run "node server.js". The server should run on the PORT specified in the config.js file (3000/5000). 
 2. Manage users - endpoint {host}:{port}/users
    1. Create user - Use POST method. You have to provide the following required fields in the body:  {firstname, lastName, streetAddress, password, email}.
@@ -35,9 +35,9 @@
 7. Creating/paying order -  {host}:{port}/order
    1. Use POST method. You have to provide email and orderId in the body. The user should be authenticated.
    
-####Note: 
+#### Note: 
 For paying the order is used BGN (my local currency). To fully test the API I have created email with testing purposes. You can find the account in the config.js
 I strongly advice to use this account for testing for you to see the invoice send by mailgun. Mailgun let only predefined email to be used in the sandbox. 
 
-####Note:
+#### Note:
 A postman collection is provided for testing usage. 
