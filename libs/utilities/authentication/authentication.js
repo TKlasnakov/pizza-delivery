@@ -1,12 +1,12 @@
+const { TOKENS_FOLDER } = require('../common/common')
 const config = require('../../../config');
 const crypto = require('crypto');
 const StringUtilities = require('../strings/strings');
 const FileSystem = require('../file-system/file-system');
-const TOKEN = require('../../../handlers/login/constants')
 
 class Authentication {
     static userAuthentication(email, token, callback) {
-       FileSystem.readFile(TOKEN.TOKEN_DIRECTORY, token, (err, tokenData) => {
+       FileSystem.readFile(TOKENS_FOLDER, token, (err, tokenData) => {
            if(err) {
                return callback(false);
            }

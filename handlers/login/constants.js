@@ -14,11 +14,7 @@ const TOKEN = {
             editable: true,
             requiredOnEdit: false
         }
-    ],
-    USER_DIRECTORY: 'users',
-    TOKEN_DIRECTORY: 'tokens',
-    FILE_NAME: 'email',
-
+    ]
 }
 
 module.exports = TOKEN;

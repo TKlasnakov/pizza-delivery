@@ -2,18 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3330296a-da09-4f33-adf3-99bf57294757" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.data/menu-items/menu-items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/menu-items/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.data/tokens/r5us0ybicvfo8er763x1.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/cart/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/order/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/mailgun/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/mailgun/mailgun.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/stripe/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/stripe/stripe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/utilities/order/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.data/users/some-email@some.email.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pizza-delivery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pizza-delivery.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/cart/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/login/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/login/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/login/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/logout/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/logout/logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/menu-items/constants.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/menu-items/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/menu-items/menu-items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/not-found/not-found.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/not-found/not-found.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/order/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/order/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/utilities/authentication/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/authentication/authentication.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/utilities/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/common/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/utilities/validations/validations.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/validations/validations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +67,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -75,11 +92,23 @@
       <option name="presentableId" value="Default" />
       <updated>1610176381544</updated>
       <workItem from="1610176382737" duration="57132000" />
-      <workItem from="1610531657696" duration="33332000" />
+      <workItem from="1610531657696" duration="35220000" />
+      <workItem from="1610864782360" duration="5366000" />
+      <workItem from="1610996234274" duration="1827000" />
+      <workItem from="1611474484090" duration="876000" />
+      <workItem from="1611596816078" duration="58000" />
+      <workItem from="1611900314564" duration="5834000" />
+      <workItem from="1611906498088" duration="7345000" />
+      <workItem from="1612020422697" duration="17515000" />
+      <workItem from="1612588811071" duration="31351000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,6 +1,12 @@
-const STATUS_CODES = require('../../libs/utilities/common/common').STATUS_CODES;
 const USERS = require('./constants');
-const COMMON = require('../../libs/utilities/common/common');
+const {
+    STATUS_CODES,
+    USERS_FOLDER,
+    TOKENS_FOLDER,
+    ERRORS,
+    EMAIL,
+    INIT
+} = require('../../libs/utilities/common/common');
 const Validations = require('../../libs/utilities/validations/validations');
 const Authentication = require('../../libs/utilities/authentication/authentication');
 const FileSystem = require('../../libs/utilities/file-system/file-system');
@@ -19,7 +25,7 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
             return callback(STATUS_CODES.BAD_REQUEST, error);
         }
         payload.password = Authentication.hashPassword(payload.password);
-        FileSystem.createFile(USERS.USER_DIRECTORY, payload.email, payload, (err) => {
+        FileSystem.createFile(USERS_FOLDER, payload.email, payload, (err) => {
             if(err) {
                 return callback(STATUS_CODES.BAD_REQUEST, { error : err })
             }
@@ -39,9 +45,9 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
         const token = headers.token;
         Authentication.userAuthentication(payload.email, token, (isAuthenticated) => {
             if (!isAuthenticated) {
-                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
+                return callback(STATUS_CODES.FORBIDDEN, ERRORS.EXPIRED_TOKEN())
             }
-            FileSystem.readFile(USERS.USER_DIRECTORY, payload.email, (err, data) => {
+            FileSystem.readFile(USERS_FOLDER, payload.email, (err, data) => {
                 if(err) {
                     return callback(STATUS_CODES.BAD_REQUEST, {error: err});
                 }
@@ -49,7 +55,7 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
                     ...data,
                     ...payload
                 }
-                FileSystem.editFile(USERS.USER_DIRECTORY, payload.email, userData, (err) => {
+                FileSystem.editFile(USERS_FOLDER, payload.email, userData, (err) => {
                     if(err) {
                         return callback(STATUS_CODES.BAD_REQUEST, { error : err })
                     }
@@ -60,20 +66,20 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
     }
 
     function deleteUser() {
-        if(!urlQuery.get(USERS.FILE_NAME)) {
+        if(!urlQuery.get(EMAIL)) {
             return callback(STATUS_CODES.BAD_REQUEST, { error: USERS.ERRORS.NO_SUCH_USER })
         }
-        const email = urlQuery.get(USERS.FILE_NAME);
+        const email = urlQuery.get(EMAIL);
         const token = headers.token;
         Authentication.userAuthentication(email, token, (isAuthenticated) => {
             if(!isAuthenticated) {
-                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
+                return callback(STATUS_CODES.FORBIDDEN, ERRORS.EXPIRED_TOKEN())
             }
-            FileSystem.deleteFile(USERS.USER_DIRECTORY, email, (err) => {
+            FileSystem.deleteFile(USERS_FOLDER, email, (err) => {
                 if(err) {
                     return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
                 }
-                FileSystem.deleteFile(USERS.TOKEN_DIRECTORY, token, (err) => {
+                FileSystem.deleteFile(TOKENS_FOLDER, token, (err) => {
                     if(err) {
                         return callback(STATUS_CODES.INTERNAL_SERVER_ERROR, {error: err});
                     }
@@ -84,16 +90,16 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
     }
 
     function getUserData() {
-        if(!urlQuery.get(USERS.FILE_NAME)) {
+        if(!urlQuery.get(EMAIL)) {
             return callback(STATUS_CODES.BAD_REQUEST, { error: USERS.ERRORS.NO_SUCH_USER })
         }
-        const email = urlQuery.get(USERS.FILE_NAME);
+        const email = urlQuery.get(EMAIL);
         const token = headers.token;
         Authentication.userAuthentication(email, token, (isAuthenticated) => {
             if(!isAuthenticated) {
-                return callback(STATUS_CODES.FORBIDDEN, COMMON.ERRORS.EXPIRED_TOKEN())
+                return callback(STATUS_CODES.FORBIDDEN, ERRORS.EXPIRED_TOKEN())
             }
-            FileSystem.readFile(USERS.USER_DIRECTORY, email, (err, userData) => {
+            FileSystem.readFile(USERS_FOLDER, email, (err, userData) => {
                 if(err) {
                     return callback(STATUS_CODES.BAD_REQUEST, { error : err });
                 }
@@ -102,7 +108,7 @@ const Users = ({ payload, method, urlQuery, headers }, callback) => {
         })
     }
 
-   return COMMON.INIT(method, methods, callback);
+   return INIT(method, methods, callback);
 }
 
 module.exports = Users;

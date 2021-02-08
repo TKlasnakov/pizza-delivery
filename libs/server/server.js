@@ -1,6 +1,6 @@
 const http = require('http');
 const router = require('../../router/router');
-const StringDecoder = require('string_decoder').StringDecoder;
+const { StringDecoder } = require('string_decoder');
 const config = require('../../config');
 const COMMON = require('../utilities/common/common');
 const validations = require('../utilities/validations/validations')
@@ -43,7 +43,6 @@ class Server {
     }
 
     _callHandler = (reqData, res) =>  {
-
         if (reqData.payload.error) {
             res.setHeader(COMMON.HEADERS.TYPES.CONTENT, COMMON.HEADERS.VALUES.APP_JSON);
             res.writeHead(COMMON.STATUS_CODES.BAD_REQUEST);
