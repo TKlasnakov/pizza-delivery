@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3330296a-da09-4f33-adf3-99bf57294757" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/cart/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/order/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/mailgun/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/mailgun/mailgun.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/stripe/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/stripe/stripe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/utilities/order/order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.data/users/some-email@some.email.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pizza-delivery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pizza-delivery.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/cart/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/login/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/login/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/logout/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/logout/logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/menu-items/constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/menu-items/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/menu-items/menu-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/not-found/not-found.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/not-found/not-found.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/order/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/order/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/utilities/authentication/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/authentication/authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/utilities/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/common/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/utilities/validations/validations.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/utilities/validations/validations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +74,7 @@
       <workItem from="1611900314564" duration="5834000" />
       <workItem from="1611906498088" duration="7345000" />
       <workItem from="1612020422697" duration="17515000" />
-      <workItem from="1612588811071" duration="31351000" />
+      <workItem from="1612588811071" duration="32640000" />
     </task>
     <servers />
   </component>
